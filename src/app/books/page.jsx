@@ -2,7 +2,10 @@ import React from 'react';
 import BooksCard from '../Components/BooksCard';
 
 const getBooks = async ()=>{
-    const res = await fetch('http://localhost:5000/books')
+    const res = await fetch('http://localhost:5000/books',{next:{revalidate:20}})
+    if(!res.ok){
+         throw new Error("no jason")
+    }
     return res.json()
 }
 

@@ -1,21 +1,17 @@
+import Link from 'next/link';
 import React from 'react';
 
 const BooksCard = ({books}) => {
-    const {title,description}=books
+    const {id,title,description}=books
     return (
-       <div className="card bg-base-100 w-96 shadow-sm">
-  <figure>
-   
-  </figure>
+      <div className="card card-dash bg-base-100 w-96">
   <div className="card-body">
-    <h2 className="card-title">
-      {title}
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
+    <h2 className="card-title">{title}</h2>
     <p>{description}</p>
     <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div>
-      <div className="badge badge-outline">Products</div>
+     <Link href={`/books/${id}`}>
+      <button className="btn btn-primary">Vist Now</button>
+     </Link>
     </div>
   </div>
 </div>
